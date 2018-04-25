@@ -26,9 +26,6 @@ import Sidebar from './Sidebar.vue'
 import { pathToComponentName } from '@app/util'
 import { resolveSidebarItems } from './util'
 import jQuery from 'jquery'
-import 'bootstrap/dist/js/bootstrap.min.js'
-
-window.$ = window.jQuery = jQuery
 
 export default {
   components: { Home, Page, Sidebar, Navbar },
@@ -121,6 +118,10 @@ export default {
       nprogress.done()
       this.isSidebarOpen = false
     })
+
+    // jQuery
+    window.$ = window.jQuery = jQuery
+    import('bootstrap/dist/js/bootstrap.min.js')
   },
 
   beforeDestroy () {
