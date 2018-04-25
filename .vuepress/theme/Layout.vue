@@ -5,10 +5,6 @@
     @touchend="onTouchEnd">
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-      <slot name="sidebar-top" slot="top"/>
-      <slot name="sidebar-bottom" slot="bottom"/>
-    </Sidebar>
     <div class="custom-layout" v-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout"/>
     </div>
@@ -172,4 +168,11 @@ function updateMetaTags (meta, current) {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.styl" lang="stylus"></style>
+<style src="bootstrap/dist/css/bootstrap.min.css"></style>
+
+<style lang="stylus">
+body
+  padding-top 56px
+  color #5a5a5a
+</style>
+

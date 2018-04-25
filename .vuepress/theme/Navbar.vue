@@ -1,21 +1,27 @@
 <template>
-  <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
-    <router-link :to="$localePath" class="home-link">
-      <img class="logo"
-        v-if="$site.themeConfig.logo"
-        :src="$withBase($site.themeConfig.logo)">
-      <span class="site-name"
-        v-if="$siteTitle"
-        :class="{ 'can-hide': $site.themeConfig.logo }">
-        {{ $siteTitle }}
-      </span>
-    </router-link>
-    <div class="links">
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
-      <NavLinks class="can-hide"/>
-    </div>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <router-link :to="$localePath" class="navbar-brand">
+        <img class="logo"
+          v-if="$site.themeConfig.logo"
+          :src="$withBase($site.themeConfig.logo)">
+        <span class="site-name"
+          v-if="$siteTitle"
+          :class="{ 'd-lg-inline-block': $site.themeConfig.logo }">
+          {{ $siteTitle }}
+        </span>
+      </router-link>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <NavLinks/>
+        <form class="form-inline mt-2 mt-md-0" submit.prevent>
+          <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
+          <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+        </form>
+      </div>
+    </nav>
   </header>
 </template>
 
@@ -38,32 +44,4 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
-.navbar
-  padding 0.7rem 1.5rem
-  line-height $navbarHeight - 1.4rem
-  position relative
-  a, span, img
-    display inline-block
-  .logo
-    height $navbarHeight - 1.4rem
-    min-width $navbarHeight - 1.4rem
-    margin-right 0.8rem
-    vertical-align top
-  .site-name
-    font-size 1.3rem
-    font-weight 600
-    color $textColor
-    position relative
-  .links
-    font-size 0.9rem
-    position absolute
-    right 1.5rem
-    top 0.7rem
-
-@media (max-width: $MQMobile)
-  .navbar
-    padding-left 4rem
-    .can-hide
-      display none
 </style>

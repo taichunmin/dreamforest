@@ -1,23 +1,23 @@
 <template>
-  <nav class="nav-links" v-if="userLinks.length || repoLink">
+  <ul class="navbar-nav mr-auto" v-if="userLinks.length || repoLink">
     <!-- user links -->
-    <div
+    <li
       class="nav-item"
       v-for="item in userLinks"
       :key="item.link">
       <DropdownLink v-if="item.type === 'links'" :item="item"/>
       <NavLink v-else :item="item"/>
-    </div>
+    </li>
     <!-- repo link -->
     <a v-if="repoLink"
       :href="repoLink"
-      class="repo-link"
+      class="nav-item repo-link"
       target="_blank"
       rel="noopener noreferrer">
       {{ repoLabel }}
       <OutboundLink/>
     </a>
-  </nav>
+  </ul>
 </template>
 
 <script>
@@ -100,34 +100,4 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
-.nav-links
-  display inline-block
-  a
-    line-height 1.4rem
-    color inherit
-    &:hover, &.router-link-active
-      color $accentColor
-  .nav-item
-    cursor: pointer
-    position relative
-    display inline-block
-    margin-left 1.5rem
-    line-height 2rem
-  .repo-link
-    margin-left 1.5rem
-
-@media (max-width: $MQMobile)
-  .nav-links
-    .nav-item, .repo-link
-      margin-left 0
-
-@media (min-width: $MQMobile)
-  .nav-links a
-    &:hover, &.router-link-active
-      color $textColor
-  .nav-item > a
-    &:hover, &.router-link-active
-      margin-bottom -2px
-      border-bottom 2px solid lighten($accentColor, 8%)
 </style>

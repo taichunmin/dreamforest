@@ -4,6 +4,8 @@
     :to="link"
     v-if="!isExternal(link)"
     :exact="link === '/'"
+    active-class="active"
+    exact-active-class="active"
   >{{ item.text }}</router-link>
   <a
     v-else
