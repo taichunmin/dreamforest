@@ -25,6 +25,10 @@ import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
 import { pathToComponentName } from '@app/util'
 import { resolveSidebarItems } from './util'
+import jQuery from 'jquery'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
+window.$ = window.jQuery = jQuery
 
 export default {
   components: { Home, Page, Sidebar, Navbar },
