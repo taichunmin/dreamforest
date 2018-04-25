@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - node
+
+cache:
+  directories:
+    - "node_modules"
+
+install:
+  - yarn
+
+script:
+  - yarn build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: .vuepress/dist
+  email: jimmy.dai@program.com.tw
+  name: Jimmy.Dai
+  on:
+    branch: master
