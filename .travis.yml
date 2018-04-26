@@ -6,11 +6,16 @@ cache:
   directories:
     - "node_modules"
 
+env:
+  - WEB_INDEX=.vuepress/dist/index.html
+
 install:
   - yarn
+  - yarn upgrade
 
 script:
   - yarn build
+  - test -f $WEB_INDEX -a -s $WEB_INDEX
 
 deploy:
   provider: pages
