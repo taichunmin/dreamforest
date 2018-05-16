@@ -38,16 +38,3 @@ highlights:
     btnText: View details »
     btnUrl: /
 ---
-
-<BootstrapCarousel :items="$page.frontmatter.carousel">
-  <template slot-scope="{ item }">
-    <div class="container" v-if="item.title">
-      <div class="carousel-caption" :class="'text-' + (item.align || 'left')">
-        <h1>{{ item.title }}</h1>
-        <p v-if="item.desc">{{ item.desc }}</p>
-        <p v-if="item.btnText"><a class="btn btn-lg btn-primary" :href="$withBase(item.btnUrl)" role="button">{{ item.btnText }}</a></p>
-      </div>
-    </div>
-  </template>
-</BootstrapCarousel>
-<Highlights :items="$page.frontmatter.highlights"></Highlights>

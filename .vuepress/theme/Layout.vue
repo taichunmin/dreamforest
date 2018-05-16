@@ -26,6 +26,7 @@ import Sidebar from './Sidebar.vue'
 import { pathToComponentName } from '@app/util'
 import { resolveSidebarItems } from './util'
 import jQuery from 'jquery'
+import _ from 'lodash'
 
 export default {
   components: { Home, Page, Sidebar, Navbar },
@@ -121,7 +122,8 @@ export default {
 
     // jQuery
     window.$ = window.jQuery = jQuery
-    import('bootstrap/dist/js/bootstrap.min.js')
+    import('bootstrap')
+    window._ = _
   },
 
   beforeDestroy () {
@@ -173,11 +175,6 @@ function updateMetaTags (meta, current) {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
+<style src="font-awesome/css/font-awesome.css"></style>
 <style src="bootstrap/dist/css/bootstrap.min.css"></style>
-
-<style lang="stylus">
-body
-  padding-top 56px
-  color #5a5a5a
-</style>
-
+<style src="./styles/theme.styl" lang="stylus"></style>

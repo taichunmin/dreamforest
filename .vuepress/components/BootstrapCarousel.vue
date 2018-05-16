@@ -4,7 +4,8 @@
       li(v-for="item, index in items", :key="item.img", :data-target="'#' + id", :data-slide-to="index", :class="{active: index === 0}")
     .carousel-inner
       .carousel-item(v-for="item, index in items", :key="item.img", :class="{active: index === 0}")
-        img.d-block.w-100(:src="item.img", :alt="item.alt || ''")
+        .carousel-img(:style="{'background-image': `url(${item.img})`, 'background-position': item.imgpos || 'center center'}")
+          img.d-block.w-100(:src="item.img", :alt="item.alt || ''")
         .carousel-caption.d-none.d-md-block
           slot(:item="item", :index="index")
     a.carousel-control-prev(:href="'#' + id", role="button", data-slide="prev", v-if="controlPrevNext")
@@ -35,3 +36,12 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.carousel-img
+  max-height: 30rem
+  background-size: cover
+  background-repeat: no-repeat
+  img
+    visibility: hidden
+</style>

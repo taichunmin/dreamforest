@@ -4,9 +4,10 @@ module.exports = {
   themeConfig: {
     sidebar: false,
     nav: [
-      { text: 'Home', link: '/' },
-      { text: '場地設備', link: '/venue' },
-      { text: '交通資訊', link: '/location' },
+      { text: 'Home', link: '/', icon: 'home' },
+      { text: '場地設備', link: '/venue', icon: 'microphone' },
+      { text: '交通資訊', link: '/location', icon: 'map-marker' },
+      { text: '活動日曆', link: '/calendar', icon: 'calendar' },
     ]
   }
 }
