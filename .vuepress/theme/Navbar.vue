@@ -15,7 +15,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <NavLinks/>
+        <NavLinks :navbarId="'navbarSupportedContent'"/>
         <form class="form-inline mt-2 mt-md-0" submit.prevent>
           <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
           <SearchBox v-else-if="$site.themeConfig.search !== false"/>

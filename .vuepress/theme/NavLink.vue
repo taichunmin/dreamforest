@@ -6,14 +6,22 @@
     :exact="link === '/'"
     active-class="active"
     exact-active-class="active"
-  >{{ item.text }}</router-link>
+    data-toggle="collapse"
+    :data-target="'#' + navbarId">
+    <i v-if="item.icon" class="fa fa-fw" :class="'fa-' + item.icon"></i> 
+    {{ item.text }}
+  </router-link>
   <a
     v-else
     :href="link"
     class="nav-link"
     :target="isMailto(link) ? null : '_blank'"
     :rel="isMailto(link) ? null : 'noopener noreferrer'"
-  >{{ item.text }}</a>
+    data-toggle="collapse"
+    :data-target="'#' + navbarId">
+    <i v-if="item.icon" class="fa fa-fw" :class="'fa-' + item.icon"></i>
+    {{ item.text }}
+  </a>
 </template>
 
 <script>
@@ -22,6 +30,10 @@ import { isExternal, isMailto, ensureExt } from './util'
 export default {
   props: {
     item: {
+      required: true
+    },
+    navbarId: {
+      type: String,
       required: true
     }
   },
