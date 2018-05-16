@@ -6,7 +6,6 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: '場地設備', link: '/venue' },
-      { text: '收費資訊', link: '/price' },
       { text: '交通資訊', link: '/location' },
     ]
   }
