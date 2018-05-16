@@ -19,14 +19,14 @@ div
       h1.text-center 自行前往
       .row.justify-content-md-center
         .col-md
-          img.my-3.img-transmit(:src="$withBase('/images/drive-motorway.svg')")
+          img.my-3.img-transmit(:src="$withBase('/images/drive-hw1.svg')")
           h5 高速公路（國道 1 號）
-          p 南下、北上：中港交流道下往台中市市區，惠中路右轉、市政路右轉即可到達。
-          a.btn.btn-primary.text-white(href="https://goo.gl/maps/5bBC3KoQ3Vk", target="_blank") 於 Google Maps 開啟
+          p.px-5 #[span.text-nowrap 中港交流道] ➜ #[span.text-nowrap 台 12 線往市區方向] ➜ #[span.text-nowrap 惠來路右轉] ➜ #[span.text-nowrap 抵達夢森林]。
+          a.btn.btn-primary.text-white(href="https://goo.gl/maps/4opZH7NCLqL2", target="_blank") 於 Google Maps 開啟
         .col-md
-          img.my-3.img-transmit(:src="$withBase('/images/drive-automobile.svg')")
+          img.my-3.img-transmit(:src="$withBase('/images/drive-phw74.svg')")
           h5 中彰快速道路（台 74 號）
-          p 由市政路閘道下，往市政路方向，惠中路左回轉慢車道。
+          p.px-5 #[span.text-nowrap 市政路閘道] ➜ #[span.text-nowrap 市政路] ➜ #[span.text-nowrap 抵達夢森林]。
           a.btn.btn-primary.text-white(href="https://goo.gl/maps/CPpDNL3cytB2", target="_blank") 於 Google Maps 開啟
   hr
   section#transit
@@ -36,18 +36,18 @@ div
         .col-md
           img.my-3.img-transmit(:src="$withBase('/images/transmit-train.svg')")
           h5 臺鐵
-          p 台中車站搭乘 75 號公車至第六分局站（市政路與惠來路口），步行 100 公尺即可抵達。
+          p #[span.text-nowrap 台中車站] ➜ #[span.text-nowrap 公車 #[code 75] 往臺中榮總] ➜ #[span.text-nowrap 第六分局（惠來路）下車] ➜ #[span.text-nowrap 抵達夢森林]。
           a.btn.btn-primary.text-white(href="https://goo.gl/maps/66X5BMjtPw12", target="_blank") 於 Google Maps 開啟
         .col-md
           img.my-3.img-transmit(:src="$withBase('/images/transmit-high-speed-train.svg')")
           h5 高鐵
-          p 高鐵台中站搭乘 155 號公車至第六分局站（市政路與惠來路口），步行 100 公尺即可抵達。
+          p #[span.text-nowrap 高鐵台中站] ➜ #[span.text-nowrap 公車 #[code 155] 往麗寶樂園] ➜ #[span.text-nowrap 第六分局（市政路）下車] ➜ #[span.text-nowrap 抵達夢森林]。
           a.btn.btn-primary.text-white(href="https://goo.gl/maps/2fmtbTvikvB2", target="_blank") 於 Google Maps 開啟
         .col-md
           img.my-3.img-transmit(:src="$withBase('/images/transmit-bus.svg')")
           h5 國道客運
-          p 朝馬轉運站搭乘 75 公車至第六分局站（市政路與惠來路口），步行 100 公尺即可抵達。
-          a.btn.btn-primary.text-white(href="https://goo.gl/maps/Vvct7UrGDh92", target="_blank") 於 Google Maps 開啟
+          p #[span.text-nowrap 朝馬轉運站] ➜ #[span.text-nowrap 公車 #[code 75] 往一江橋] ➜ #[span.text-nowrap 第六分局（惠來路）下車] ➜ #[span.text-nowrap 抵達夢森林]。
+          a.btn.btn-primary.text-white(href="https://goo.gl/maps/6aN2gp8NJ8K2", target="_blank") 於 Google Maps 開啟
   hr
   section#transit
     .container.my-4.text-center
@@ -57,13 +57,13 @@ div
           img.my-3.img-transmit(:src="$withBase('/images/park-automobile.svg')")
           h5 汽車
           p
-            div 市政路與惠來路延線之公有停車格 #[span.badge.badge-success 20/hr]
-            div 市政北一路與惠來路公有立體停車場 #[span.badge.badge-success 30/hr]
-            div 豐邑市政核心 B2 停車場 #[span.badge.badge-success 30/hr]
+            div 市政路、惠來路與惠中路之路邊停車格 #[code $20/h]
+            div 臺中市惠來立體停車場 #[code $30/h]
+            div 豐邑市政核心 B2 停車場 #[code $30/h]
         .col-md
           img.my-3.img-transmit(:src="$withBase('/images/park-scooter.svg')")
           h5 機車
-          p 市政路與惠來路延線之機車停車格 #[span.badge.badge-success Free]
+          p 市政路、惠來路與惠中路之路邊停車格 #[code Free]
 </template>
 
 <script>
