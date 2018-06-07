@@ -13,7 +13,7 @@ div
           .col-md-7
             img.img-fluid.w-100(:src="$withBase('/images/location.svg')")
   section#google-maps
-    <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=%E5%8F%B0%E7%81%A3%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%B1%AF%E5%8D%80%20%E5%BE%AE%E7%A8%8B%E5%BC%8F%E8%B3%87%E8%A8%8A%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&key=AIzaSyCXboeblulLZEQ0BxjVXbl0Y8bVPW-jbNo" allowfullscreen></iframe>
+    <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJAaZEqCYWaTQRMv6fuIsJEuo&key=AIzaSyCXboeblulLZEQ0BxjVXbl0Y8bVPW-jbNo" allowfullscreen></iframe>
   section#transit
     .container.my-4.text-center
       h1.text-center 自行前往
@@ -59,7 +59,6 @@ div
           p
             div 市政路、惠來路與惠中路之路邊停車格 #[code $20/h]
             div 臺中市惠來立體停車場 #[code $30/h]
-            div 豐邑市政核心 B2 停車場 #[code $30/h]
         .col-md
           img.my-3.img-transmit(:src="$withBase('/images/park-scooter.svg')")
           h5 機車

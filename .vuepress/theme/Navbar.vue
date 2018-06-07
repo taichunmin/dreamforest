@@ -15,7 +15,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <NavLinks :navbarId="'navbarSupportedContent'"/>
+        <NavLinks/>
         <form class="form-inline mt-2 mt-md-0" submit.prevent>
           <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
           <SearchBox v-else-if="$site.themeConfig.search !== false"/>
@@ -34,9 +34,11 @@ import NavLinks from './NavLinks.vue'
 export default {
   components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
   computed: {
+    algolia () {
+      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+    },
     isAlgoliaSearch () {
-      const algolia = this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-      return algolia && algolia.apiKey && algolia.indexName
+      return this.algolia && this.algolia.apiKey && this.algolia.indexName
     }
   }
 }
