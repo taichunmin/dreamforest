@@ -3,48 +3,48 @@
     class="nav-link"
     :to="link"
     v-if="!isExternal(link)"
-    :exact="link === '/'"
-    active-class="active"
-    exact-active-class="active"
-    data-toggle="collapse"
-    :data-target="'#' + navbarId">
-    <i v-if="item.icon" class="fa fa-fw" :class="'fa-' + item.icon"></i> 
+    :exact="exact"
+  >
+    <i v-if="item.icon" class="fa fa-fw" :class="'fa-' + item.icon"></i>
     {{ item.text }}
   </router-link>
   <a
     v-else
     :href="link"
-    class="nav-link"
-    :target="isMailto(link) ? null : '_blank'"
-    :rel="isMailto(link) ? null : 'noopener noreferrer'"
-    data-toggle="collapse"
-    :data-target="'#' + navbarId">
+    class="nav-link external"
+    :target="isMailto(link) || isTel(link) ? null : '_blank'"
+    :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"
+  >
     <i v-if="item.icon" class="fa fa-fw" :class="'fa-' + item.icon"></i>
     {{ item.text }}
+    <OutboundLink/>
   </a>
 </template>
 
 <script>
-import { isExternal, isMailto, ensureExt } from './util'
+import { isExternal, isMailto, isTel, ensureExt } from './util'
 
 export default {
   props: {
     item: {
       required: true
-    },
-    navbarId: {
-      type: String,
-      required: true
     }
   },
   computed: {
-    link() {
+    link () {
       return ensureExt(this.item.link)
+    },
+    exact () {
+      if (this.$site.locales) {
+        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link)
+      }
+      return this.link === '/'
     }
   },
   methods: {
     isExternal,
-    isMailto
+    isMailto,
+    isTel
   }
 }
 </script>
